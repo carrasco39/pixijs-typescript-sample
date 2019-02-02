@@ -1,6 +1,6 @@
 import { Application, loader, Text } from 'pixi.js';
 import 'pixi-layers';
-import { CardScene } from '@app/scenes/cardScene';
+import { CardStage } from "@app/stages/cardStage";
 class Game {
   app: Application;
   fpsText: Text;
@@ -27,7 +27,7 @@ class Game {
     this.fpsText = new PIXI.Text('oi', { fill: 0xb6f442, fontSize: 14 });
     this.fpsText.x = this.app.screen.left;
     this.fpsText.y = this.app.screen.top;
-    this.app.stage = new CardScene();
+    this.app.stage = new CardStage();
     this.app.stage.addChild(this.fpsText);
     this.app.ticker.add(this.update.bind(this));
   }
