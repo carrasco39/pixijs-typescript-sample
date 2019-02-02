@@ -24,7 +24,8 @@
     "seed"
   ],
   "dependencies": {
-    "pixi.js": "^4.8.5"
+    "pixi.js": "^4.8.5",
+    "pixi-layers": "github:pixijs/pixi-display#layers"
   },
   "devDependencies": {
     "@types/node": "9.6.0",

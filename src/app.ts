@@ -1,9 +1,8 @@
 import { Application, loader, Text } from 'pixi.js';
+import 'pixi-layers';
 import { CardScene } from '@app/scenes/cardScene';
-
 class Game {
   app: Application;
-  cardScene: CardScene;
   fpsText: Text;
   constructor() {
     // instantiate app
@@ -13,8 +12,7 @@ class Game {
       height: window.innerHeight,
       resolution: devicePixelRatio,
       backgroundColor: 0x1099bb
-    });
-
+    }); 
     document.body.appendChild(this.app.view);
 
     window.addEventListener('resize', this.resize.bind(this));
@@ -25,12 +23,12 @@ class Game {
   }
 
   setup(): void {
-    this.cardScene = new CardScene();
+
     this.fpsText = new PIXI.Text('oi', { fill: 0xb6f442, fontSize: 14 });
     this.fpsText.x = this.app.screen.left;
     this.fpsText.y = this.app.screen.top;
-    this.app.stage = this.cardScene;
-    this.cardScene.addChild(this.fpsText);
+    this.app.stage = new CardScene();
+    this.app.stage.addChild(this.fpsText);
     this.app.ticker.add(this.update.bind(this));
   }
 
