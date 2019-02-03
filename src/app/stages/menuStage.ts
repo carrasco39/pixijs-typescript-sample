@@ -10,21 +10,32 @@ export class MenuStage extends BaseStage {
     btnIconizer: Sprite;
     btnCard: Sprite;
     btnParticle: Sprite;
-
-
     constructor() {
         super();
-
-        var graphics = new PIXI.Graphics();
-        
+       
         this.btnCard = new Sprite(PIXI.loader.resources["assets/img/btnCard.png"].texture);
-        this.btnCard = new Sprite(PIXI.loader.resources["assets/img/btnParticle.png"].texture);
-        this.btnCard = new Sprite(PIXI.loader.resources["assets/img/btnIconizer.png"].texture);
+        this.btnParticle = new Sprite(PIXI.loader.resources["assets/img/btnParticle.png"].texture);
+        this.btnIconizer = new Sprite(PIXI.loader.resources["assets/img/btnIconizer.png"].texture);
         var screenWidth = Game.app.screen.width;
         var screenHeight = Game.app.screen.height;
+
+        this.btnIconizer.scale.x /= 2;
+        this.btnIconizer.scale.y /= 2;
+        this.btnIconizer.position = new Point(screenWidth/2 - 100, screenHeight);
+        this.btnIconizer.interactive = true;
+        this.btnIconizer.buttonMode = true;
+        
+        this.btnCard.scale.x /= 2;
+        this.btnCard.scale.y /= 2;
         this.btnCard.position = new Point(screenWidth/2 - 200, screenHeight);
         this.btnCard.interactive = true;
         this.btnCard.buttonMode = true;
+        
+        this.btnParticle.scale.x /= 2;
+        this.btnParticle.scale.y /= 2;
+        this.btnParticle.position = new Point(screenWidth/2, screenHeight);
+        this.btnParticle.interactive = true;
+        this.btnParticle.buttonMode = true;
 
 
 
@@ -37,6 +48,8 @@ export class MenuStage extends BaseStage {
         this.btnParticle.on("pointerdown", () => {
             Game.app.stage = new ParticleStage();
         });
+
+        this.addChild(this.btnParticle, this.btnCard, this.btnIconizer);
     }
     update() {
 
