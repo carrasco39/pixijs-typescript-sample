@@ -1,6 +1,8 @@
 import { Application, loader, Text } from 'pixi.js';
 import 'pixi-layers';
-import { IconStage } from '@app/stages/IconStage';
+
+import { MenuStage } from '@app/stages/menuStage';
+// import { IconStage } from '@app/stages/IconStage';
 // import { CardStage } from "@app/stages/cardStage";
 class Game {
   app: Application;
@@ -16,6 +18,12 @@ class Game {
     window.addEventListener('resize', this.resize.bind(this));
 
     loader.add("assets/img/card.png");
+    loader.add("assets/img/btnIconizer.png");
+    loader.add("assets/img/btnCard.png");
+    loader.add("assets/img/btnParticle.png");
+    loader.add("assets/img/btnBack.png");
+
+
     loader.add("assets/img/icons/angry.png");
     loader.add("assets/img/icons/smile.png");
     loader.add("assets/img/icons/love.png");
@@ -30,8 +38,11 @@ class Game {
     this.fpsText = new PIXI.Text('', { fill: 0xb6f442, fontSize: 14 });
     this.fpsText.x = this.app.screen.left;
     this.fpsText.y = this.app.screen.top;
-    var iconStage = new IconStage();
-    this.app.stage = iconStage;
+    //var iconStage = new IconStage();
+    //var particleStage = new ParticleStage();
+    var menuStage = new MenuStage();
+    this.app.stage = menuStage;
+    this.app.stage.addChild(this.fpsText);
     this.app.ticker.add(this.update.bind(this));
   }
 

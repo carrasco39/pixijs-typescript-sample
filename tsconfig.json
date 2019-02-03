@@ -13,7 +13,11 @@
       "es2017",
       "dom"
     ],
-    "noImplicitAny": true,
+    "noResolve": false,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "strictFunctionTypes": false,
+    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "baseUrl": "./src/",
