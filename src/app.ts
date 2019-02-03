@@ -12,7 +12,7 @@ class Game {
     this.app = new Application({
       autoResize: true,
       backgroundColor: 0x1099bb
-    }); 
+    });
     document.body.appendChild(this.app.view);
 
     window.addEventListener('resize', this.resize.bind(this));
@@ -27,7 +27,10 @@ class Game {
     loader.add("assets/img/icons/angry.png");
     loader.add("assets/img/icons/smile.png");
     loader.add("assets/img/icons/love.png");
-    
+    loader.add("assets/img/icons/flag-for-brazil.png");
+    loader.add("assets/img/icons/fisted-hand.png");
+    loader.add("assets/img/icons/alarm-clock.png");
+
 
     loader.load(this.setup.bind(this));
     this.resize();
@@ -38,11 +41,8 @@ class Game {
     this.fpsText = new PIXI.Text('', { fill: 0xb6f442, fontSize: 14 });
     this.fpsText.x = this.app.screen.left;
     this.fpsText.y = this.app.screen.top;
-    //var iconStage = new IconStage();
-    //var particleStage = new ParticleStage();
     var menuStage = new MenuStage();
     this.app.stage = menuStage;
-    this.app.stage.addChild(this.fpsText);
     this.app.ticker.add(this.update.bind(this));
   }
 
@@ -52,6 +52,9 @@ class Game {
   }
   update() {
     this.fpsText.text = "FPS: " + this.app.ticker.FPS.toFixed(2);
+    if (this.app.stage.children.findIndex(x => x == this.fpsText) < 0) {
+      this.app.stage.addChild(this.fpsText);
+    }
   }
 }
 

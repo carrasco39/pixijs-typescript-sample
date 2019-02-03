@@ -12,7 +12,6 @@ export class MenuStage extends BaseStage {
     btnParticle: Sprite;
     constructor() {
         super();
-       
         this.btnCard = new Sprite(PIXI.loader.resources["assets/img/btnCard.png"].texture);
         this.btnParticle = new Sprite(PIXI.loader.resources["assets/img/btnParticle.png"].texture);
         this.btnIconizer = new Sprite(PIXI.loader.resources["assets/img/btnIconizer.png"].texture);

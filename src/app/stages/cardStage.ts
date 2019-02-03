@@ -12,6 +12,7 @@ export class CardStage extends BaseStage {
     cards: Card[];
     constructor() {
         super();
+        this.addChild(this.btnBack);
         this.cards = [];
         this.cardTexture = PIXI.loader.resources["assets/img/card.png"].texture;
         this.deck = new PIXI.display.Group(0, true);

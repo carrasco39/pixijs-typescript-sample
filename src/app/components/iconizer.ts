@@ -99,6 +99,18 @@ export class Iconizer extends Container {
                 {
                     tag: ":love:",
                     texture: PIXI.loader.resources["assets/img/icons/love.png"].texture
+                },
+                {
+                    tag: ":flagforbrazil:",
+                    texture: PIXI.loader.resources["assets/img/icons/flag-for-brazil.png"].texture
+                },
+                {
+                    tag: ":alarmclock:",
+                    texture: PIXI.loader.resources["assets/img/icons/alarm-clock.png"].texture
+                },
+                {
+                    tag: ":fistedhand:",
+                    texture: PIXI.loader.resources["assets/img/icons/fisted-hand.png"].texture
                 }
             ]
         }

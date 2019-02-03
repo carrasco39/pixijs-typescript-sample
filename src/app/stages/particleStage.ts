@@ -7,7 +7,7 @@ export class ParticleStage extends BaseStage {
     private emitter: ParticleEmitter;
     constructor() {
         super();
-
+        this.addChild(this.btnBack);
         this.candleFX = new FX();
         this.init();
     }

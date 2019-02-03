@@ -7,6 +7,7 @@ export class IconStage extends BaseStage {
     iconizer: Iconizer;
     constructor() {
         super();
+        this.addChild(this.btnBack);
         this.textTTL = 2;
         this.initializeStage();
     }
