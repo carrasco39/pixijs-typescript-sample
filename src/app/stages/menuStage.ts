@@ -19,21 +19,23 @@ export class MenuStage extends BaseStage {
         var screenWidth = Game.app.screen.width;
         var screenHeight = Game.app.screen.height;
 
-        this.btnIconizer.scale.x /= 2;
-        this.btnIconizer.scale.y /= 2;
-        this.btnIconizer.position = new Point(screenWidth/2 - 100, screenHeight);
+        //this.btnIconizer.scale.x /= 2;
+        //this.btnIconizer.scale.y /= 2;
+
+        var offset = 20;
+        this.btnIconizer.position = new Point(screenWidth/2 - this.btnIconizer.width - offset, screenHeight/2);
         this.btnIconizer.interactive = true;
         this.btnIconizer.buttonMode = true;
         
-        this.btnCard.scale.x /= 2;
-        this.btnCard.scale.y /= 2;
-        this.btnCard.position = new Point(screenWidth/2 - 200, screenHeight);
+        //this.btnCard.scale.x /= 2;
+        //this.btnCard.scale.y /= 2;
+        this.btnCard.position = new Point(screenWidth/2, screenHeight/2);
         this.btnCard.interactive = true;
         this.btnCard.buttonMode = true;
         
-        this.btnParticle.scale.x /= 2;
-        this.btnParticle.scale.y /= 2;
-        this.btnParticle.position = new Point(screenWidth/2, screenHeight);
+        //this.btnParticle.scale.x /= 2;
+        //this.btnParticle.scale.y /= 2;
+        this.btnParticle.position = new Point(screenWidth/2 + this.btnParticle.width + offset, screenHeight/2);
         this.btnParticle.interactive = true;
         this.btnParticle.buttonMode = true;
 
