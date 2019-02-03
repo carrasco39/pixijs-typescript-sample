@@ -19,8 +19,8 @@
     "baseUrl": "./src/",
     "paths": {
       "@app/*": ["app/*"],
-      "@models/*": ["models/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@core": ["app.ts"]
     }
   }
 }

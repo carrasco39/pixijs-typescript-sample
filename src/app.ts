@@ -1,6 +1,7 @@
 import { Application, loader, Text } from 'pixi.js';
 import 'pixi-layers';
-import { CardStage } from "@app/stages/cardStage";
+import { IconStage } from '@app/stages/IconStage';
+// import { CardStage } from "@app/stages/cardStage";
 class Game {
   app: Application;
   fpsText: Text;
@@ -8,9 +9,6 @@ class Game {
     // instantiate app
     this.app = new Application({
       autoResize: true,
-      width: window.innerWidth,
-      height: window.innerHeight,
-      resolution: devicePixelRatio,
       backgroundColor: 0x1099bb
     }); 
     document.body.appendChild(this.app.view);
@@ -18,17 +16,22 @@ class Game {
     window.addEventListener('resize', this.resize.bind(this));
 
     loader.add("assets/img/card.png");
+    loader.add("assets/img/icons/angry.png");
+    loader.add("assets/img/icons/smile.png");
+    loader.add("assets/img/icons/love.png");
+    
 
     loader.load(this.setup.bind(this));
+    this.resize();
   }
 
   setup(): void {
 
-    this.fpsText = new PIXI.Text('oi', { fill: 0xb6f442, fontSize: 14 });
+    this.fpsText = new PIXI.Text('', { fill: 0xb6f442, fontSize: 14 });
     this.fpsText.x = this.app.screen.left;
     this.fpsText.y = this.app.screen.top;
-    this.app.stage = new CardStage();
-    this.app.stage.addChild(this.fpsText);
+    var iconStage = new IconStage();
+    this.app.stage = iconStage;
     this.app.ticker.add(this.update.bind(this));
   }
 
